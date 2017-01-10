@@ -1,7 +1,7 @@
 {
   "name": "react-native-xlog",
-  "version": "0.0.1",
-  "description": "xlog for react-native",
+  "version": "0.1.0",
+  "description": "Wecha's Xlog framework for react-native",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -24,6 +24,7 @@
   },
   "keywords": [
     "xlog",
+    "mars",
     "react-native"
   ],
   "author": "sh9701403@gmail.com",
