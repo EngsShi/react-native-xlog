@@ -1,0 +1,39 @@
+{
+  "name": "react-native-xlog",
+  "version": "0.0.1",
+  "description": "xlog for react-native",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "verbose": true,
+    "bail": true,
+    "scriptPreprocessor": "node_modules/babel-jest",
+    "setupEnvScriptFile": "jestSupport/mockStorage.js"
+  },
+  "files": [
+    "android",
+    "ios",
+    "index.js",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EngsShi/react-native-xlog.git"
+  },
+  "keywords": [
+    "xlog",
+    "react-native"
+  ],
+  "author": "sh9701403@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EngsShi/react-native-xlog"
+  },
+  "homepage": "https://github.com/EngsShi/react-native-xlog",
+  "devDependencies": {
+    "babel-jest": "^5.3.0",
+    "jest-cli": "^0.8.0"
+  }
+}
