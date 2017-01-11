@@ -2,7 +2,7 @@
 
 Wecha's Xlog framework for RN.
 
-You can send log to Xlog, and manager Xlog lifecycel.
+You can send log to Xlog, and manager Xlog lifecycle.
 
 
 
