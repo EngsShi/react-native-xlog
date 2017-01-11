@@ -20,14 +20,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/EngsShi/react-native-xlog.git"
+    "url": "git@github.com:EngsShi/react-native-xlog.git"
   },
   "keywords": [
     "xlog",
     "mars",
     "react-native"
   ],
-  "author": "sh9701403@gmail.com",
+  "author": "EngsSH <sh9701403@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/EngsShi/react-native-xlog"
