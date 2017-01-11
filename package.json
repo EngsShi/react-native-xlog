@@ -1,7 +1,7 @@
 {
   "name": "react-native-xlog",
-  "version": "0.0.1",
-  "description": "xlog for react-native",
+  "version": "0.1.0",
+  "description": "Wecha's Xlog framework for react-native",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -20,13 +20,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/EngsShi/react-native-xlog.git"
+    "url": "git@github.com:EngsShi/react-native-xlog.git"
   },
   "keywords": [
     "xlog",
+    "mars",
     "react-native"
   ],
-  "author": "sh9701403@gmail.com",
+  "author": "EngsSH <sh9701403@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/EngsShi/react-native-xlog"
