@@ -2,7 +2,7 @@
 
 Wecha's Xlog framework for RN.
 
-You can send log to Xlog, and manager Xlog lifecycle.
+You can send log to Xlog, and manager Xlog lifecycle. Handle js/native crash log in production builds.
 
 
 
@@ -10,7 +10,7 @@ You can send log to Xlog, and manager Xlog lifecycle.
 
 - [x] iOS: send log to xlog for js function
 - [x] iOS: RCTLog output to xlog
-- [ ] iOS: crash message output in the xlog
+- [x] iOS: crash message output to xlog
 - [ ] android: send log to xlog for js function
 - [ ] android: RCTLog output to xlog
 - [ ] android: crash message output in the xlog
