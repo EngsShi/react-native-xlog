@@ -17,6 +17,7 @@ int main(int argc, char * argv[]) {
   @autoreleasepool {
     
     NSString* logPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/log"];
+    NSLog(@"log path: %@", logPath);
     
     [XLogBridge registerWithLogPath:logPath level:kLevelDebug showConsoleLog:YES appenderMode:kAppednerAsync nameprefix:@"Test"];
     
