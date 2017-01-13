@@ -6,6 +6,15 @@ You can send log to Xlog, and manager Xlog lifecycle.
 
 
 
+## Feature
+
+- [x] iOS: send log to xlog for js function
+- [x] iOS: RCTLog output to xlog
+- [ ] iOS: crash message output in the xlog
+- [ ] android: send log to xlog for js function
+- [ ] android: RCTLog output to xlog
+- [ ] android: crash message output in the xlog
+
 
 
 ## Get Start
@@ -36,9 +45,3 @@ Xlog.error('tag', 'log');
 Xlog.fatal('tag', 'log');
 ```
 
-
-
-## TODO
-
-- [ ] iOS: RN crash message output in the xlog
-- [ ] android: RN crash message output in the xlog

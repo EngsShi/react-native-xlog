@@ -64,6 +64,22 @@ export default class example extends Component {
           <TouchableOpacity style={styles.btn} onPress={()=> {XLog.error('tag error', 'error message is here')}}><Text>error</Text></TouchableOpacity>
           <TouchableOpacity style={styles.btn} onPress={()=> {XLog.fatal('tag fatal', 'fatal message is here')}}><Text>fatal</Text></TouchableOpacity>
         </View>
+
+        <Text style={styles.chapterText}>
+          send console log
+        </Text>
+        <View style={styles.consoleLogView}>
+          <TouchableOpacity style={styles.btn} onPress={()=> {console.log('console log is here')}}><Text>log</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={()=> {console.warn('console warn is here')}}><Text>warn</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={()=> {console.error('console error is here')}}><Text>error</Text></TouchableOpacity>
+        </View>
+
+        <Text style={styles.chapterText}>
+          crash test
+        </Text>
+        <View style={styles.consoleLogView}>
+          <TouchableOpacity style={styles.btn} onPress={()=> {throw new Error('crash test is here')}}><Text>crash</Text></TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -96,5 +112,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#9ff',
+  },
+
+  consoleLogView: {
+    width: window.width,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+  },
+  chapterText: {
+    marginTop: 30,
+    width: window.width,
+    textAlign: 'center',
   },
 });
