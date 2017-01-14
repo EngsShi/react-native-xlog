@@ -9,6 +9,8 @@
 #import "XLogBridge.h"
 
 #import "RCTBridge.h"
+#import "RCTAssert.h"
+#import "RCTLog.h"
 
 
 #import <sys/xattr.h>
@@ -59,6 +61,69 @@ static __strong NSString *nameprefix = @"Test";
   appender_close();
 }
 
+#pragma mark -
+
+- (instancetype)init
+{
+  self = [super init];
+  if (self) {
+    [self setFatalHandle];
+    [self setRCTLog];
+  }
+  return self;
+}
+
+- (void)setFatalHandle {
+  RCTSetFatalHandler(^(NSError *error) {
+    LOG_MESSAGE(kLevelFatal, "ios fatal handle", [error description]);
+    
+#if DEBUG
+    @try {
+      NSString *name = [NSString stringWithFormat:@"%@: %@", RCTFatalExceptionName, error.localizedDescription];
+      NSString *message = RCTFormatError(error.localizedDescription, error.userInfo[RCTJSStackTraceKey], 75);
+      [NSException raise:name format:@"%@", message];
+    } @catch (NSException *e) {}
+#endif
+  });
+}
+
+- (void)setRCTLog {
+  RCTSetLogFunction(^(
+                      RCTLogLevel level,
+                      __unused RCTLogSource source,
+                      NSString *fileName,
+                      NSNumber *lineNumber,
+                      NSString *message) {
+    
+    TLogLevel tLogLevel = kLevelAll;
+    switch (level) {
+      case RCTLogLevelTrace:
+        tLogLevel = kLevelAll;
+        break;
+      case RCTLogLevelInfo:
+        tLogLevel = kLevelInfo;
+        break;
+      case RCTLogLevelWarning:
+        tLogLevel = kLevelWarn;
+        break;
+      case RCTLogLevelError:
+        tLogLevel = kLevelError;
+        break;
+      case RCTLogLevelFatal:
+        tLogLevel = kLevelFatal;
+        break;
+        
+      default:
+        tLogLevel = kLevelNone;
+        break;
+    }
+    
+    NSString *log = RCTFormatLog([NSDate date], level, fileName, lineNumber, message);
+    
+    LOG_MESSAGE((TLogLevel)tLogLevel, "log", log);
+  });
+}
+
 
 #pragma mark - open & close
 
@@ -92,7 +157,6 @@ RCT_EXPORT_METHOD(log:(int)level
                   :(RCTPromiseRejectBlock)reject) {
   
   LOG_MESSAGE((TLogLevel)level, [tag UTF8String], log);
-  
   
   if (resolve) {
     resolve(nil);
