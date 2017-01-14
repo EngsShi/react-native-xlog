@@ -76,14 +76,6 @@ static __strong NSString *nameprefix = @"Test";
 - (void)setFatalHandle {
   RCTSetFatalHandler(^(NSError *error) {
     LOG_MESSAGE(kLevelFatal, "ios fatal handle", [error description]);
-    
-#if DEBUG
-    @try {
-      NSString *name = [NSString stringWithFormat:@"%@: %@", RCTFatalExceptionName, error.localizedDescription];
-      NSString *message = RCTFormatError(error.localizedDescription, error.userInfo[RCTJSStackTraceKey], 75);
-      [NSException raise:name format:@"%@", message];
-    } @catch (NSException *e) {}
-#endif
   });
 }
 
