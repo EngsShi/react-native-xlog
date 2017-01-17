@@ -37,12 +37,14 @@ export default class example extends Component {
 
     this.state = {
       msgArray: [],
-    },
+    };
 
     XLog.open();
+    XLog.installUncaughtCrashHandler();
   }
 
   componentWillUnmount() {
+    XLog.uninstallUncaughtCrashHandler();
     XLog.close();
   }
 

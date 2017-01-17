@@ -19,6 +19,7 @@
 #include <mars/xlog/appender.h>
 
 #import "LogUtil.h"
+#import "XLogCrashHandler.h"
 
 
 @implementation XLogBridge
@@ -32,6 +33,7 @@ static TLogLevel level = kLevelAll;
 static BOOL showConsoleLog = YES;
 static TAppenderMode mode = kAppednerAsync;
 static __strong NSString *nameprefix = @"Test";
+
 
 #pragma mark - register xlog setting
 
@@ -61,6 +63,18 @@ static __strong NSString *nameprefix = @"Test";
   appender_close();
 }
 
+#pragma mark - crash function
+
++ (void)installUncaughtCrashHandler:(NSUncaughtExceptionHandler * _Nullable)handler {
+  InstallUncaughtExceptionHandler(handler);
+  InstallUncaughtSignalHandler();
+}
+
++ (void)uninstallUncaughtCrashHandler {
+  UninstallUncaughtExceptionHandler();
+  UninstallUncaughtSignalHandler();
+}
+
 #pragma mark -
 
 - (instancetype)init
@@ -76,14 +90,6 @@ static __strong NSString *nameprefix = @"Test";
 - (void)setFatalHandle {
   RCTSetFatalHandler(^(NSError *error) {
     LOG_MESSAGE(kLevelFatal, "ios fatal handle", [error description]);
-    
-#if DEBUG
-    @try {
-      NSString *name = [NSString stringWithFormat:@"%@: %@", RCTFatalExceptionName, error.localizedDescription];
-      NSString *message = RCTFormatError(error.localizedDescription, error.userInfo[RCTJSStackTraceKey], 75);
-      [NSException raise:name format:@"%@", message];
-    } @catch (NSException *e) {}
-#endif
   });
 }
 
@@ -125,7 +131,7 @@ static __strong NSString *nameprefix = @"Test";
 }
 
 
-#pragma mark - open & close
+#pragma mark - RN
 
 RCT_EXPORT_METHOD(open
                   :(RCTPromiseResolveBlock)resolve
@@ -147,9 +153,6 @@ RCT_EXPORT_METHOD(close
   }
 }
 
-
-#pragma mark - log
-
 RCT_EXPORT_METHOD(log:(int)level
                   :(NSString *)tag
                   :(NSString *)log
@@ -163,5 +166,26 @@ RCT_EXPORT_METHOD(log:(int)level
   }
 }
 
+RCT_EXPORT_METHOD(installUncaughtCrashHandler
+                  :(RCTPromiseResolveBlock)resolve
+                  :(RCTPromiseRejectBlock)reject) {
+  
+  [[self class] installUncaughtCrashHandler:nil];
+  
+  if (resolve) {
+    resolve(nil);
+  }
+}
+
+RCT_EXPORT_METHOD(uninstallUncaughtCrashHandler
+                  :(RCTPromiseResolveBlock)resolve
+                  :(RCTPromiseRejectBlock)reject) {
+  
+  [[self class] uninstallUncaughtCrashHandler];
+  
+  if (resolve) {
+    resolve(nil);
+  }
+}
 
 @end
