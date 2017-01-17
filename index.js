@@ -29,6 +29,14 @@ const close = async (): void => {
   return await XLogBridge.close();
 }
 
+const installUncaughtCrashHandler = async (): void => {
+  return await XLogBridge.installUncaughtCrashHandler();
+}
+
+const uninstallUncaughtCrashHandler = async (): void => {
+  return await XLogBridge.uninstallUncaughtCrashHandler();
+}
+
 // 存储用户日志接口
 
 const verbose = async (tag: string, log: string): void => {
@@ -58,6 +66,9 @@ const fatal = async (tag: string, log: string): void => {
 module.exports = {
   open,
   close,
+
+  installUncaughtCrashHandler,
+  uninstallUncaughtCrashHandler,
   
   verbose,
   debug,
