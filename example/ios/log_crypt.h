@@ -14,7 +14,7 @@
 //  log_crypt.h
 //  mars-ext
 //
-//  Created by garry on 16/6/14.
+//  Created by yanguoyue on 16/6/14.
 //  Copyright © 2016年 Tencent. All rights reserved.
 //
 

@@ -37,4 +37,19 @@
  */
 + (void)close;
 
+
+#pragma mark - handle crash log
+
+/**
+ handle crash, and send crash message to xlog
+
+ @param handler crash message handler, send message to xlog. If you set nil, use default handler.
+ */
++ (void)installUncaughtCrashHandler:(NSUncaughtExceptionHandler * _Nullable)handler;
+
+/**
+ clear crash handler
+ */
++ (void)uninstallUncaughtCrashHandler;
+
 @end

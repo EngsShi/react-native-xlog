@@ -23,6 +23,7 @@ int main(int argc, char * argv[]) {
     
     
 //    [XLogBridge open];
+//    [XLogBridge installUncaughtCrashHandler:nil];
     
     return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
   }
