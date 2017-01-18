@@ -14,7 +14,7 @@
 //  log_crypt.cc
 //  mars-ext
 //
-//  Created by garry on 16/6/14.
+//  Created by yanguoyue on 16/6/14.
 //  Copyright © 2016年 Tencent. All rights reserved.
 //
 
@@ -24,6 +24,7 @@
 #include <string.h>
 #include <sys/time.h>
 #include <time.h>
+#include <stdio.h>
 
 static const char kMagicSyncStart = '\x03';
 static const char kMagicAsyncStart ='\x04';

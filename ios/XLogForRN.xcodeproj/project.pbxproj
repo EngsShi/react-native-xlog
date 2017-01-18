@@ -10,6 +10,7 @@
 		007044C71E1F887C006B4F32 /* XLogBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 007044C61E1F887C006B4F32 /* XLogBridge.mm */; };
 		007048C01E24C767006B4F32 /* LogHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 007048BD1E24C767006B4F32 /* LogHelper.mm */; };
 		007048C11E24C767006B4F32 /* LogUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 007048BF1E24C767006B4F32 /* LogUtil.m */; };
+		007048FD1E2CF2FE006B4F32 /* XLogCrashHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 007048FC1E2CF2FE006B4F32 /* XLogCrashHandler.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,8 @@
 		007048BD1E24C767006B4F32 /* LogHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogHelper.mm; sourceTree = "<group>"; };
 		007048BE1E24C767006B4F32 /* LogUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogUtil.h; sourceTree = "<group>"; };
 		007048BF1E24C767006B4F32 /* LogUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogUtil.m; sourceTree = "<group>"; };
+		007048FB1E2CF2FE006B4F32 /* XLogCrashHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLogCrashHandler.h; sourceTree = "<group>"; };
+		007048FC1E2CF2FE006B4F32 /* XLogCrashHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XLogCrashHandler.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				007048BB1E24C767006B4F32 /* Util */,
 				007044C41E1F887C006B4F32 /* XLogBridge.h */,
 				007044C61E1F887C006B4F32 /* XLogBridge.mm */,
+				007048FB1E2CF2FE006B4F32 /* XLogCrashHandler.h */,
+				007048FC1E2CF2FE006B4F32 /* XLogCrashHandler.mm */,
 			);
 			path = XLogForRN;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			files = (
 				007048C01E24C767006B4F32 /* LogHelper.mm in Sources */,
 				007044C71E1F887C006B4F32 /* XLogBridge.mm in Sources */,
+				007048FD1E2CF2FE006B4F32 /* XLogCrashHandler.mm in Sources */,
 				007048C11E24C767006B4F32 /* LogUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
