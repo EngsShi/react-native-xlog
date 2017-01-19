@@ -3,6 +3,7 @@ package com.engsshi.xlog;
 import android.content.Context;
 
 import com.facebook.common.logging.FLog;
+import com.facebook.react.bridge.LifecycleEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -13,7 +14,7 @@ import com.tencent.mars.xlog.Xlog;
  * Created by Sean.Ye on 2017/1/6.
  */
 
-public class XLogModule extends ReactContextBaseJavaModule {
+public class XLogModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
     private static XLogSetting sXLogSetting;
     private static boolean sIsLogOpen = false;
 
@@ -43,6 +44,8 @@ public class XLogModule extends ReactContextBaseJavaModule {
         Log.setLogImp(new Xlog());
 
         FLog.setLoggingDelegate(new FLogging2XLogDelegate()); // 重定向RN原生log(FLog)到xlog
+        FLog.setMinimumLoggingLevel(setting.getLevel());// FLog的日志级别和xlog一致
+
         if (context != null) {
             XLogCustomCrashHandler.getInstance().register(context); // 捕获全局的crash信息
         }
@@ -119,5 +122,20 @@ public class XLogModule extends ReactContextBaseJavaModule {
     @Override
     public String getName() {
         return "XLogBridge";
+    }
+
+    @Override
+    public void onHostResume() {
+
+    }
+
+    @Override
+    public void onHostPause() {
+
+    }
+
+    @Override
+    public void onHostDestroy() {
+        Log.appenderFlush(false); //强制flush, 不等待flush结束就返回
     }
 }

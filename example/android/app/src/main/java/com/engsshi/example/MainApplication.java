@@ -56,6 +56,6 @@ public class MainApplication extends Application implements ReactApplication {
                 .build();
         XLogModule.initWithNativeCrashInclude(xLogSetting, this);
 
-        XLogModule.open(); // 在app启动是打开xlog，捕获进入JS前的log
+        XLogModule.open(); // 在app启动时打开xlog，捕获进入JS前的log
     }
 }

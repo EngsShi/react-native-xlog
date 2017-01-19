@@ -26,12 +26,12 @@ public final class XLogSetting {
     private String namePrefix;
     private boolean openConsoleLog;
 
-    public XLogSetting(int level,
-                       int appenderMode,
-                       String cacheDir,
-                       String path,
-                       String namePrefix,
-                       boolean openConsoleLog) {
+    private XLogSetting(int level,
+                        int appenderMode,
+                        String cacheDir,
+                        String path,
+                        String namePrefix,
+                        boolean openConsoleLog) {
         this.level = level;
         this.appenderMode = appenderMode;
         this.cacheDir = cacheDir;

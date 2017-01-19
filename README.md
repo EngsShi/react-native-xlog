@@ -4,7 +4,7 @@ Wechat's Xlog framework for RN.
 
 You can send log to Xlog, and manager Xlog lifecycle. Handle js/native crash log in production builds.
 
-*attention*: you will see the new appendered log only when you restart your app
+*attention*: you will see the crash log only when you restart your app
 
 ## Feature
 
