@@ -1,3 +1,6 @@
 rootProject.name = 'example'
 
 include ':app'
+
+include ':react-native-xlog'
+project(':react-native-xlog').projectDir = new File(rootProject.projectDir, '../../android')
