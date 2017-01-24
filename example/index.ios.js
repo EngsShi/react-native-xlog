@@ -6,3 +6,6 @@ import {
 import example from './example';
 
 AppRegistry.registerComponent('example', () => example);
+
+
+module.exports = example;
