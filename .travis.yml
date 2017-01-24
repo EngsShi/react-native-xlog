@@ -3,9 +3,8 @@ language: objective-c
 osx_image: xcode8
 
 install:
-  - cd example
-  - mkdir -p /Users/travis/build/engsshi/.nvm
-  - export NVM_DIR="/Users/travis/build/engsshi/.nvm"
+  - mkdir -p /Users/travis/build/EngsShi/.nvm
+  - export NVM_DIR="/Users/travis/build/EngsShi/.nvm"
   - brew install nvm
   - source $(brew --prefix nvm)/nvm.sh
   # TODO npm 2 started stalling on Travis, t11852928
