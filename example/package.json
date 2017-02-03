@@ -6,8 +6,7 @@
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
     	"travis": "npm test && npm run react-native:ios && npm run react-native:android",
-    	"//react-native:ios": "xcodebuild -project ios/example.xcodeproj -scheme example",
-    	"react-native:ios": "jest",
+    	"react-native:ios": "xcodebuild -project ios/example.xcodeproj -scheme example -sdk iphonesimulator",
     	"react-native:android": "jest"
 	},
 	"dependencies": {
