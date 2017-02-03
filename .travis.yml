@@ -2,6 +2,10 @@ language: objective-c
 
 osx_image: xcode8
 
+xcode_project: example/ios/example.xcodeproj
+
+xcode_scheme: example
+
 install:
   - mkdir -p /Users/travis/build/EngsShi/.nvm
   - export NVM_DIR="/Users/travis/build/EngsShi/.nvm"
