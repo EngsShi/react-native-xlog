@@ -12,6 +12,7 @@ install:
   - rm -Rf "${TMPDIR}/jest_preprocess_cache"
   - wget https://github.com/yarnpkg/yarn/releases/download/v0.16.0/yarn-0.16.0.js
   - export yarn="node $(pwd)/yarn-0.16.0.js"
+  - cd export
   - $yarn install
   - npm install
 
