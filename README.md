@@ -39,7 +39,8 @@ dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
-    compile 'com.tencent.mars:mars-xlog:1.0.1' //<--add here
+    compile "com.tencent.mars:mars-xlog:1.0.4" //<--add here
+    compile project(":react-native-xlog") //<--add here
 }
 ```
 
@@ -49,8 +50,20 @@ include ':react-native-xlog'
 project(':react-native-xlog').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-xlog/android')
 ```
 
+- add variables in root project's build.gradle
+```gradle
+ext {
+    MARS_XLOG_VERSION_NAME='1.0.4'
+    MARS_XLOG_VERSION_NAME_SUFFIX = ''
+}
+```
+
 2. add XLogPackage 
 ```java
+...
+import com.engsshi.xlog.XLogPackage;
+...
+
 public class MainApplication extends Application implements ReactApplication {
     ...
     private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -79,6 +92,12 @@ and support you two init way:
 - XLogModule.initWithNativeCrashInclude(xLogSetting, this): normal log and crash log (JS fatal exception and native uncaught exception)
 
 ```java
+...
+import android.os.Environment;
+import com.engsshi.xlog.XLogModule;
+import com.engsshi.xlog.XLogSetting;
+...
+
 public class MainApplication extends Application implements ReactApplication {
   ...
    @Override
