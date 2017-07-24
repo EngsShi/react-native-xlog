@@ -33,7 +33,7 @@ run `react-native link react-native-xlog` to link the library.
 
 ## Android 
 1. config gradle script
- - add dependency in android/app/build.gradle
+- add dependency in android/app/build.gradle
 ```gradle
 dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
@@ -85,8 +85,8 @@ public class MainApplication extends Application implements ReactApplication {
 ```
 
 2. init xlog settings.   
-JS has to exception type: fatal exception(just throw JavascriptException in native) and soft exception(use FLog.e in native). you can find this from RN source file: ExceptionsManagerModule.java 
-and support you two init way:
+   JS has to exception type: fatal exception(just throw JavascriptException in native) and soft exception(use FLog.e in native). you can find this from RN source file: ExceptionsManagerModule.java 
+   and support you two init way:
 
 - XLogModule.init(xLogSetting): normal log, include FLog
 - XLogModule.initWithNativeCrashInclude(xLogSetting, this): normal log and crash log (JS fatal exception and native uncaught exception)
@@ -124,7 +124,7 @@ public class MainApplication extends Application implements ReactApplication {
 ```
 
 3. if your want to log early, rather than delay to RNView render done, your can turn on xlog early, just add in Application's onCreate() after 
-XLogModule init done. 
+   XLogModule init done. 
 ```java 
 public class MainApplication extends Application implements ReactApplication {
   ...
@@ -152,3 +152,15 @@ Xlog.error('tag', 'log');
 Xlog.fatal('tag', 'log');
 ```
 
+
+
+## Decode log file
+
+Use this [script](https://github.com/Tencent/mars/blob/master/mars/log/crypt/decode_mars_nocrypt_log_file.py) to decode log file:
+
+- myapp.mmap2
+- myapp_20170723.xlog
+
+```
+python decode_mars_log_file.py ~/Downloads/log/myapp_20170723.xlog
+```
