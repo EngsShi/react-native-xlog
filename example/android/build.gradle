@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 ext{
-    MARS_XLOG_VERSION_NAME='1.0.1'
+    MARS_XLOG_VERSION_NAME='1.0.4'
     MARS_XLOG_VERSION_NAME_SUFFIX = ''
 }
 
