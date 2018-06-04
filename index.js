@@ -30,10 +30,16 @@ const close = async (): void => {
 }
 
 const installUncaughtCrashHandler = async (): void => {
-  return await XLogBridge.installUncaughtCrashHandler();
+  if (!XLogBridge.installUncaughtCrashHandler) {
+    return;
+  }
+  await XLogBridge.installUncaughtCrashHandler();
 }
 
 const uninstallUncaughtCrashHandler = async (): void => {
+  if (!XLogBridge.uninstallUncaughtCrashHandler) {
+    return;
+  }
   return await XLogBridge.uninstallUncaughtCrashHandler();
 }
 
