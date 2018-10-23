@@ -1,6 +1,6 @@
 {
   "name": "react-native-xlog",
-  "version": "0.5.0",
+  "version": "0.6.1",
   "description": "Wecha's Xlog framework for react-native",
   "main": "index.js",
   "scripts": {
